@@ -1,0 +1,101 @@
+DangerPool yiimp
+-----
+utils/screen-stratum.sh
+add lyra2z
+-------
+install.sh
+fees mining 0.1
+payments freq 1*60*60
+payments min 0.01
+1032 ... lyra2z
+------
+crontab -e
+@reboot sleep 25 && /etc/screen-scrypt.sh
+add
+@reboot sleep 25 && /etc/screen-stratum.sh
+copy /utils/screen-stratum.sh to /etc/screen-stratum.sh
+sudo chmod +x /etc/screen-stratum.sh
+reboot
+ИЛИ добавить в install.sh
+37  sudo cp -r utils/screen-scrypt.sh /etc/
+38  sudo cp -r utils/screen-stratum.sh /etc/
+40  sudo chmod +x /etc/screen-scrypt.sh
+41  sudo chmod +x /etc/screen-stratum.sh
+
+1136 (crontab -l 2>/dev/null; echo "@reboot sleep 25 && /etc/screen-scrypt.sh") | crontab -
+1137 (crontab -l 2>/dev/null; echo "@reboot sleep 25 && /etc/screen-stratum.sh") | crontab -
+-------------------
+
+
+install dngrcoind:
+
+wget https://raw.githubusercontent.com/dngrcoin/dngrcoin/master/DNGRinstall.sh
+
+bash DNGRinstall.sh
+
+Go to http://xxx.xxx.xxx.xxx/AdminPanel or https://xxx.xxx.xxx.xxx/AdminPanel to access Panel Admin
+
+Go to the wallets tab
+
+click at the bottom CREATE COIN of the page
+
+go to GENERAL
+
+Name DangerCoin
+
+Symbol  DNGR
+
+Algo  lyra2z
+
+go to SETTINGS
+
+Put a tick: Enable, AutoReady, Visible, Installed, Masternodes
+
+go to DAEMON
+
+Process name dngrcoind
+
+Conf folder .dngrcoin
+
+RPC host 127.0.0.1
+
+RPC port 49003
+
+click at the bottom CREATE
+
+click at the DangerCoin
+
+click at the tab SET AUTO
+
+click at the tab COIN PROPERTIES
+
+click at the tab DAEMON
+
+Copy sample config from coin properties/daemon to .dngrcoin/dngrcoin.conf
+
+--------------------------
+
+for example:
+
+rpcuser=yiimprpc
+
+rpcpassword=eLcIr4MWBJvZ93J5tswC4g
+
+rpcport=49003
+
+rpcthreads=8
+
+rpcallowip=127.0.0.1
+
+maxconnections=12
+
+daemon=1
+
+gen=0
+
+alertnotify=echo %s | mail -s "DangerCoin alert!" al456643@gog.tr
+
+blocknotify=/var/stratum/blocknotify dngrpool.99:4553 1425 %s
+
+---------------------------
+sudo reboot
