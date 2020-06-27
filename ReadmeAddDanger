@@ -29,6 +29,11 @@ payments freq 1*60*60
 payments min 0.01
 1032 ... lyra2z
 ------
+for payout to work 
+/var/web/yaamp/core/backend/payment.php 
+line 57 add 'DNGR'
+
+------
 crontab -e
 @reboot sleep 25 && /etc/screen-scrypt.sh
 add
