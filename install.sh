@@ -35,12 +35,12 @@
     #Copy needed files
     sudo cp -r conf/functions.sh /etc/
     sudo cp -r utils/screen-scrypt.sh /etc/
+    sudo cp -r utils/screen-stratum.sh /etc/
     sudo cp -r conf/editconf.py /usr/bin/
     sudo chmod +x /usr/bin/editconf.py
     sudo chmod +x /etc/screen-scrypt.sh
-
+    sudo chmod +x /etc/screen-stratum.sh
     source /etc/functions.sh
-
 
     clear
     echo
@@ -1003,13 +1003,13 @@
     
     define('"'"'YAAMP_LIMIT_ESTIMATE'"'"', false);
     
-    define('"'"'YAAMP_FEES_MINING'"'"', 0.5);
+    define('"'"'YAAMP_FEES_MINING'"'"', 0.1);
     define('"'"'YAAMP_FEES_EXCHANGE'"'"', 2);
     define('"'"'YAAMP_FEES_RENTING'"'"', 2);
     define('"'"'YAAMP_TXFEE_RENTING_WD'"'"', 0.002);
     
-    define('"'"'YAAMP_PAYMENTS_FREQ'"'"', 2*60*60);
-    define('"'"'YAAMP_PAYMENTS_MINI'"'"', 0.001);
+    define('"'"'YAAMP_PAYMENTS_FREQ'"'"', 1*60*60);
+    define('"'"'YAAMP_PAYMENTS_MINI'"'"', 0.01);
     
     define('"'"'YAAMP_ALLOW_EXCHANGE'"'"', false);
     define('"'"'YIIMP_PUBLIC_EXPLORER'"'"', true);
@@ -1030,7 +1030,7 @@
     define('"'"'YAAMP_CREATE_NEW_COINS'"'"', false);
     define('"'"'YAAMP_NOTIFY_NEW_COINS'"'"', false);
     
-    define('"'"'YAAMP_DEFAULT_ALGO'"'"', '"'"'x11'"'"');
+    define('"'"'YAAMP_DEFAULT_ALGO'"'"', '"'"'lyra2z'"'"');
     
     define('"'"'YAAMP_USE_NGINX'"'"', true);
     
@@ -1134,7 +1134,7 @@
 
     #Add to contrab screen-scrypt
     (crontab -l 2>/dev/null; echo "@reboot sleep 20 && /etc/screen-scrypt.sh") | crontab -
-
+    (crontab -l 2>/dev/null; echo "@reboot sleep 20 && /etc/screen-stratum.sh") | crontab -
     #fix error screen main "service"
     sudo sed -i 's/service $webserver start/sudo service $webserver start/g' /var/web/yaamp/modules/thread/CronjobController.php
     sudo sed -i 's/service nginx stop/sudo service nginx stop/g' /var/web/yaamp/modules/thread/CronjobController.php
