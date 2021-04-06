@@ -24,7 +24,7 @@ Add to fstab file
     adduser pool (pool it's just an example...)
     adduser pool sudo
     su - pool
-    sudo apt-get install curl mc nano git pwgen libkrb5-dev curl apt-transport-https
+    sudo apt-get install curl mc nano git pwgen libkrb5-dev apt-transport-https software-properties-common
     git clone -b Kudaraidee https://github.com/xavatar/yiimp_install_scrypt.git
     cd yiimp_install_scrypt/
     bash install.sh (DO NOT RUN THE SCRIPT AS ROOT or SUDO)
