@@ -25,7 +25,7 @@ Add to fstab file
     adduser pool sudo
     su - pool
     sudo apt-get install curl mc nano git pwgen libkrb5-dev apt-transport-https software-properties-common
-    git clone -b Kudaraidee https://github.com/xavatar/yiimp_install_scrypt.git
+    git clone -b Kudaraidee https://github.com/dngrcoin/yiimp_install_scrypt
     cd yiimp_install_scrypt/
     bash install.sh (DO NOT RUN THE SCRIPT AS ROOT or SUDO)
     At the end, you MUST REBOOT to finalize installation...
